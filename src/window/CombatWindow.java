@@ -1,6 +1,6 @@
 package window;
 
-import characters.Persona;
+import characters.Role;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,7 +9,6 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.net.URL;
-import java.util.ArrayList;
 
 public class CombatWindow {
     private JPanel PanelCombatMain;
@@ -28,7 +27,7 @@ public class CombatWindow {
     private int count;
 
     public CombatWindow() {
-        Persona testCharacter = new Persona();
+        Role testCharacter = new Role();
         count = 0;
         ButtonAttack.addActionListener(new ActionListener() {
             @Override
