@@ -3,7 +3,8 @@ import window.CombatWindow;
 import javax.swing.*;
 
 public class MainTester {
-    public static void main(String[] args){
+
+    public static void main(String[] args) {
         System.out.println("Program Start!");
         CombatWindow attack = new CombatWindow();
         SwingUtilities.invokeLater(new Runnable() {
@@ -12,5 +13,4 @@ public class MainTester {
             }
         });
     }
-
 }
