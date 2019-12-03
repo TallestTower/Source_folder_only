@@ -1,7 +1,7 @@
 package characters;
 
 public class Role {
-    private int currentHealth, maxHealth, currentLevel, baseAttack, currentAttack, baseArmor, currentArmor, baseInit, currentInit, currentEXP, maxEXP;
+    private int currentHealth, maxHealth, currentLevel, baseAttack, currentAttack, baseArmor, currentArmor, baseInitiative, currentInitiative, currentEXP, maxEXP;
     private String name, classPlaceHolder;
     public Role(String name_, String classPlaceHolder_, int currentLevel_, int maxHealth_, int baseAttack_, int baseArmor_, int baseInit_, int maxEXP_)
     {
@@ -9,13 +9,13 @@ public class Role {
         this.classPlaceHolder = classPlaceHolder_;
         this.currentLevel = currentLevel_;
         this.maxHealth = maxHealth_;
-        this.currentHealth = this.maxHealth;
+        this.currentHealth = maxHealth_;
         this.baseAttack = baseAttack_;
-        this.currentAttack = this.baseAttack;
+        this.currentAttack = baseAttack_;
         this.baseArmor = baseArmor_;
-        this.currentArmor = this.baseArmor;
-        this.baseInit = baseInit_;
-        this.currentInit = this.baseInit;
+        this.currentArmor = baseArmor_;
+        this.baseInitiative = baseInit_;
+        this.currentInitiative= baseInit_;
         this.currentEXP = 0;
         this.maxEXP = maxEXP_;
     }
@@ -31,8 +31,6 @@ public class Role {
         this("Generic Git", "Cardboard Cutout", 1, 110,
                 6, 1, 11, 100 );
     }
-
-    //TODO sort methods by getters, setters, and modifiers
     //Getters
     public String getName()
     {
@@ -58,7 +56,7 @@ public class Role {
     {
         return this.maxHealth;
     }
-
+    
     public int getBaseAttack(){return this.baseAttack;}
 
     public int getCurrentAttack()
@@ -66,14 +64,19 @@ public class Role {
         return this.currentAttack;
     }
 
-    public int getbaseArmor() {return this.baseArmor;}
+    public int getBaseArmor() {return this.baseArmor;}
 
     public int getCurrentArmor() {return this.currentArmor;}
 
-    public int getBaseInit() {return this.baseInit;}
+    public int getBaseInitiative() {return this.baseInitiative;}
 
-    public int getCurrentInit() {return this.currentInit;}
+    public int getCurrentInitiative() {return this.currentInitiative;}
 
+    public int getMaxEXP()
+    {
+        return this.maxEXP;
+    }
+    
     public int getCurrentEXP()
     {
         return this.currentEXP;
@@ -91,74 +94,131 @@ public class Role {
     }
 
     //Setters
-    public void setName(String nameChange)
+    public void setName(String newName)
     {
-        this.name = nameChange;
+        this.name = newName;
     }
 
-    public void setCurrentHealth(int currentHealthChanger)
+    public void setCurrentHealth(int newHealth)
     {
-        this.currentHealth+=currentHealthChanger;
-        if(this.currentHealth>this.maxHealth)
-        {
-            this.currentHealth=this.maxHealth;
-        }
+        this.currentHealth = newHealth;
     }
 
-    public void setMaxHealth(int maxHealthChanger)
+    public void setMaxHealth(int newMaxHealth)
     {
-        this.maxHealth += maxHealthChanger;
+        this.maxHealth = newMaxHealth;
     }
 
-    public void setBaseAttack(int baseAttackChanger){this.baseAttack += baseAttackChanger;}
-
-    public void setCurrentAttack(int currentAttackChanger)
+    public void setBaseAttack(int newBaseAttack)
     {
-        this.currentAttack = currentAttackChanger;
+        this.baseAttack = newBaseAttack;
+    }
+    
+    public void setCurrentAttack(int newAttack)
+    {
+        this.currentAttack = newAttack;
     }
 
-    public void setBaseArmor(int baseArmorChanger)
+    public void setBaseArmor(int newBaseArmor)
     {
-        this.baseArmor+=baseArmorChanger;
+        this.baseArmor = newBaseArmor;
+    }
+    
+    public void setCurrentArmor(int newArmor)
+    {
+        this.currentArmor = newArmor;
     }
 
-    public void setInit(int initChanger)
+    public void setBaseInitiative(int newInitiative)
     {
-        this.baseInit+=initChanger;
+        this.baseInitiative = newInitiative;
+    }
+
+    public void setCurrentInitiative(int newInitiative)
+    {
+        this.currentInitiative = newInitiative;
     }
 
     //Ecters
     public void levelUp()
     {
-        if(this.currentEXP >= 100*this.currentLevel)
+        this.currentLevel++;
+        hpUp();
+        attackUp();
+        armorUp();
+        initUp();
+    }
+    public void buffHealth(int healthChange)
+    {
+        if(healthChange + getCurrentHealth() > getMaxHealth())
         {
-            this.currentEXP-=(100*this.currentLevel);
-            this.currentLevel++;
-            hpUp();
-            attackUp();
-            armorUp();
-            initUp();
+            setCurrentHealth(getMaxHealth());
+        }
+        else if(healthChange + getCurrentHealth() < 0)
+        {
+            setCurrentHealth(1);
+        }
+        else{
+            setCurrentHealth(healthChange + getCurrentHealth());
         }
     }
-
+    public void buffArmor(int armorChange)
+    {
+        if(armorChange + getCurrentArmor() < getBaseArmor())
+        {
+            setCurrentArmor(getBaseArmor());
+        }
+        else{
+            setCurrentArmor(armorChange + getCurrentArmor());
+        }
+    }
+    public void buffAttack(int attackChange)
+    {
+        if(attackChange + getCurrentAttack() < getBaseAttack()){
+            setCurrentAttack(getBaseAttack());
+        }
+        else{
+            setCurrentAttack(attackChange + getCurrentAttack());
+        }
+    }
+    public void buffInitiative(int initiativeChange)
+    {
+        if(initiativeChange + getCurrentInitiative() < getBaseInitiative())
+        {
+            setCurrentInitiative(getBaseInitiative());
+        }
+        else{ setCurrentInitiative(initiativeChange + getCurrentInitiative()); }
+    }
+    public void buffExp(int expChange)
+    {
+        if(expChange + getCurrentEXP() > 100 * getLevel())
+        {
+            levelUp();
+            this.currentEXP = getCurrentEXP() - 100 * getLevel();
+        }
+        else
+        {
+            this.currentEXP += expChange;
+        }
+    }
     public void hpUp()
     {
-        setMaxHealth(10);
+        buffHealth(10);
     }
 
     public void attackUp()
     {
-        setBaseAttack(1);
+        buffAttack(1);
     }
 
     public void armorUp()
     {
-        setBaseArmor(1/currentLevel);
+        buffArmor(currentLevel/10);
     }
 
     public void initUp()
     {
-        setInit(1);
+        buffInitiative(1);
     }
 
     public String toString()
