@@ -21,7 +21,7 @@ public class Cleric extends Role {
     @Override
     public void hpUp()
     {
-        buffHealth(8);
+        healHealth(8);
     }
 
     @Override

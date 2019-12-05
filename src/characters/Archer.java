@@ -22,7 +22,7 @@ public class Archer extends Role
     @Override
     public void hpUp()
     {
-        buffHealth(7);
+        healHealth(7);
     }
 
     @Override
