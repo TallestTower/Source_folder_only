@@ -1,6 +1,6 @@
 package characters;
 
-public class Role {
+public abstract class Role {
     private int currentHealth, maxHealth, currentLevel, baseAttack, currentAttack, baseArmor, currentArmor, baseInitiative, currentInitiative, currentEXP, maxEXP;
     private String name, classPlaceHolder;
     public Role(String name_, String classPlaceHolder_, int currentLevel_, int maxHealth_, int baseAttack_, int baseArmor_, int baseInit_, int maxEXP_)
@@ -139,6 +139,46 @@ public class Role {
         this.currentInitiative = newInitiative;
     }
 
+    public void buffCurrentInitiatve(int buffInit)
+    {
+        this.currentInitiative+=buffInit;
+    }
+
+    public void debuffCurrentInitiative(int debuffInit)
+    {
+        this.currentInitiative-=debuffInit;
+    }
+
+    public void buffCurrentAttack(int buffAttack)
+    {
+        this.currentAttack+=buffAttack;
+    }
+
+    public void debuffCurrentAttack(int debuffAttack)
+    {
+        this.currentAttack-=debuffAttack;
+    }
+
+    public void buffCurrentArmor(int buffArmor)
+    {
+        this.currentArmor+=buffArmor;
+    }
+
+    public void debuffCurrentArmor(int debuffArmor)
+    {
+        this.currentArmor-=debuffArmor;
+    }
+
+    public void takeDamage(int damageTaken)
+    {
+        if(damageTaken > currentArmor)
+            this.currentHealth -= damageTaken-currentArmor;
+        if(currentHealth<0)
+        {
+            currentHealth = 0;
+        }
+    }
+
     //Ecters
     public void levelUp()
     {
@@ -148,7 +188,7 @@ public class Role {
         armorUp();
         initUp();
     }
-    public void buffHealth(int healthChange)
+    public void healHealth(int healthChange)
     {
         if(healthChange + getCurrentHealth() > getMaxHealth())
         {
@@ -203,7 +243,7 @@ public class Role {
     }
     public void hpUp()
     {
-        buffHealth(10);
+        healHealth(10);
     }
 
     public void attackUp()

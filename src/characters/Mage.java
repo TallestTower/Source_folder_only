@@ -22,7 +22,7 @@ public class Mage extends Role
     @Override
     public void hpUp()
     {
-        buffHealth(6);
+        healHealth(6);
     }
 
     @Override

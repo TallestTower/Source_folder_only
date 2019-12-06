@@ -21,7 +21,7 @@ public class Warrior extends Role {
     @Override
     public void hpUp()
     {
-        buffHealth(10);
+        healHealth(10);
     }
 
     @Override
