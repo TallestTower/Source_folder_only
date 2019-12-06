@@ -17,6 +17,8 @@ public class Cleric extends Role {
         this("Jesus Christ","Cleric",10,200,20,3,20);
     }
 
+    public String getIcon(){ return "/images/role_icons/cleric.png";}
+
     //Ecters
     @Override
     public void hpUp()

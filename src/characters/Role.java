@@ -82,6 +82,8 @@ public abstract class Role {
         return this.currentEXP;
     }
 
+    public abstract String getIcon();
+
     public String[] getStatsList() {
         String[] tempList = new String[6];
         tempList[0] = "Name: " + getName();

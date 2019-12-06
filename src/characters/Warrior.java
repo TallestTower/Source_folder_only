@@ -17,6 +17,8 @@ public class Warrior extends Role {
         this("Maximus Meridius","Warrior",10,200,20,3,10);
     }
 
+    public String getIcon(){ return "/images/role_icons/warrior.png";}
+
     //Ecters
     @Override
     public void hpUp()
