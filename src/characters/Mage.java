@@ -18,6 +18,8 @@ public class Mage extends Role
         this("Tim The Enchanter","Mage",10,120,62,2,30);
     }
 
+    public String getIcon(){ return "/images/role_icons/mage.png";}
+
     //Ecters
     @Override
     public void hpUp()

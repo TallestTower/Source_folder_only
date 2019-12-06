@@ -19,8 +19,6 @@ public class CombatWindow {
     private JPanel PanelPlayer;
     private JPanel PanelButtons;
     private JLabel PlayerStats;
-    private JLabel PlayerCharacter1Label;
-    private JLabel PlayerCharacter2Label;
     private JTextArea EnemyStatsTextArea;
     private JTextArea PlayerStatsTextArea;
     private JButton AbilityBtn2;
@@ -29,13 +27,7 @@ public class CombatWindow {
     private JTextArea AbilityTextArea;
     private JLabel InitiativePlayerLabel;
     private JLabel TargetedEnemyLabel;
-    private JLabel PlayerCharacter4Label;
-    private JLabel PlayerCharacter3Label;
     private JPanel EnemyPanel;
-    private JLabel EnemyCharacter1Label;
-    private JLabel EnemyCharacter2Label;
-    private JLabel EnemyCharacter3Label;
-    private JLabel EnemyCharacter4Label;
     private JButton playerBtn1;
     private JButton playerBtn2;
     private JButton playerBtn3;
@@ -49,6 +41,31 @@ public class CombatWindow {
     public CombatWindow(ArrayList<Role> playersIn, ArrayList<Role> enemiesIn) {
         ArrayList<Role> players = playersIn;
         ArrayList<Role> enemies = enemiesIn;
+        ArrayList<JButton> playerBtns = new ArrayList<>();
+        playerBtns.add(playerBtn1);
+        playerBtns.add(playerBtn2);
+        playerBtns.add(playerBtn3);
+        playerBtns.add(playerBtn4);
+
+        ArrayList<JButton> enemyBtns = new ArrayList<>();
+        enemyBtns.add(enemyBtn5);
+        enemyBtns.add(enemyBtn6);
+        enemyBtns.add(enemyBtn7);
+        enemyBtns.add(enemyBtn8);
+
+        ImageIcon icon = null;
+        Image image;
+        for(int i = 0; i < 4; i++) {
+            icon = new ImageIcon(getClass().getResource(players.get(i).getIcon()));
+            image = icon.getImage().getScaledInstance(200, 150, Image.SCALE_SMOOTH);
+            playerBtns.get(i).setIcon(new ImageIcon(image));
+        }
+        for(int j = 0; j < 4; j++) {
+            icon = new ImageIcon(getClass().getResource(enemies.get(j).getIcon()));
+            image = icon.getImage().getScaledInstance(200, 150, Image.SCALE_SMOOTH);
+            enemyBtns.get(j).setIcon(new ImageIcon(image));
+        }
+
         AbilityBtn1.addActionListener(new ActionListener() {
             /**
              * Invoked when an action occurs.
@@ -111,13 +128,11 @@ public class CombatWindow {
         playerBtn1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                ImageIcon icon = new ImageIcon(getClass().getResource("/images/role_icons/archer.png"));
+                ImageIcon icon = new ImageIcon(getClass().getResource(players.get(0).getIcon()));
                 Image image = icon.getImage().getScaledInstance(200, 150, Image.SCALE_SMOOTH);
-                playerBtn1.setIcon(new ImageIcon(image));
                 InitiativePlayerLabel.setIcon(new ImageIcon(image));
-
                 PlayerStatsTextArea.setText("\n\n");
-                for(String line: playersIn.get(0).getStatsList()) {
+                for(String line: players.get(0).getStatsList()) {
                     PlayerStatsTextArea.append(" " + line + "\n");
                 }
             }
@@ -125,13 +140,11 @@ public class CombatWindow {
         playerBtn2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                ImageIcon icon = new ImageIcon(getClass().getResource("/images/role_icons/cleric.png"));
+                ImageIcon icon = new ImageIcon(getClass().getResource(players.get(1).getIcon()));
                 Image image = icon.getImage().getScaledInstance(200, 150, Image.SCALE_SMOOTH);
-                playerBtn2.setIcon(new ImageIcon(image));
                 InitiativePlayerLabel.setIcon(new ImageIcon(image));
-
                 PlayerStatsTextArea.setText("\n\n");
-                for(String line: playersIn.get(1).getStatsList()) {
+                for(String line: players.get(1).getStatsList()) {
                     PlayerStatsTextArea.append(" " + line + "\n");
                 }
             }
@@ -139,13 +152,11 @@ public class CombatWindow {
         playerBtn3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                ImageIcon icon = new ImageIcon(getClass().getResource("/images/role_icons/mage.png"));
+                ImageIcon icon = new ImageIcon(getClass().getResource(players.get(2).getIcon()));
                 Image image = icon.getImage().getScaledInstance(200, 150, Image.SCALE_SMOOTH);
-                playerBtn3.setIcon(new ImageIcon(image));
                 InitiativePlayerLabel.setIcon(new ImageIcon(image));
-
                 PlayerStatsTextArea.setText("\n\n");
-                for(String line: playersIn.get(2).getStatsList()) {
+                for(String line: players.get(2).getStatsList()) {
                     PlayerStatsTextArea.append(" " + line + "\n");
                 }
             }
@@ -153,13 +164,11 @@ public class CombatWindow {
         playerBtn4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                ImageIcon icon = new ImageIcon(getClass().getResource("/images/role_icons/warrior.png"));
+                ImageIcon icon = new ImageIcon(getClass().getResource(players.get(3).getIcon()));
                 Image image = icon.getImage().getScaledInstance(200, 150, Image.SCALE_SMOOTH);
-                playerBtn4.setIcon(new ImageIcon(image));
                 InitiativePlayerLabel.setIcon(new ImageIcon(image));
-
                 PlayerStatsTextArea.setText("\n\n");
-                for(String line: playersIn.get(3).getStatsList()) {
+                for(String line: players.get(3).getStatsList()) {
                     PlayerStatsTextArea.append(" " + line + "\n");
                 }
             }
@@ -202,14 +211,6 @@ public class CombatWindow {
         String imageName = imagesList[indexIn];
         ImageIcon icon = new ImageIcon(getClass().getResource("/images/" + imageName));
         Image image = icon.getImage().getScaledInstance(200, 150, Image.SCALE_SMOOTH);
-        PlayerCharacter1Label.setIcon(new ImageIcon(image));
-        PlayerCharacter2Label.setIcon(new ImageIcon(image));
-        PlayerCharacter3Label.setIcon(new ImageIcon(image));
-        PlayerCharacter4Label.setIcon(new ImageIcon(image));
-        EnemyCharacter1Label.setIcon(new ImageIcon(image));
-        EnemyCharacter2Label.setIcon(new ImageIcon(image));
-        EnemyCharacter3Label.setIcon(new ImageIcon(image));
-        EnemyCharacter4Label.setIcon(new ImageIcon(image));
     }
     public void createAndShowGUI() {
         System.out.println("Created GUI on EDT? "+

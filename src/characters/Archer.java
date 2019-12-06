@@ -18,6 +18,7 @@ public class Archer extends Role
         this("Robin Hood","Archer",10,140,27,2,20);
     }
 
+    public String getIcon(){ return "/images/role_icons/archer.png";}
     //Ecters
     @Override
     public void hpUp()
