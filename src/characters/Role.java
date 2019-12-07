@@ -1,8 +1,13 @@
 package characters;
 
+import ability.*;
+
+import java.util.ArrayList;
+
 public abstract class Role {
     private int currentHealth, maxHealth, currentLevel, baseAttack, currentAttack, baseArmor, currentArmor, baseInitiative, currentInitiative, currentEXP, maxEXP;
     private String name, classPlaceHolder;
+    public ArrayList<Ability> abilities;
     public Role(String name_, String classPlaceHolder_, int currentLevel_, int maxHealth_, int baseAttack_, int baseArmor_, int baseInit_, int maxEXP_)
     {
         this.name = name_;
@@ -18,6 +23,8 @@ public abstract class Role {
         this.currentInitiative= baseInit_;
         this.currentEXP = 0;
         this.maxEXP = maxEXP_;
+        abilities = new ArrayList<>();
+        setAbilities();
     }
 
     public Role(String name_, int currentLevel_)
@@ -84,6 +91,8 @@ public abstract class Role {
 
     public abstract String getIcon();
 
+    public abstract ArrayList<Ability> getAbilities();
+
     public String[] getStatsList() {
         String[] tempList = new String[6];
         tempList[0] = "Name: " + getName();
@@ -140,6 +149,8 @@ public abstract class Role {
     {
         this.currentInitiative = newInitiative;
     }
+
+    public abstract void setAbilities();
 
     public void buffCurrentInitiatve(int buffInit)
     {

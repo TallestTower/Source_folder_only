@@ -4,11 +4,11 @@ import characters.Role;
 
 import java.util.ArrayList;
 
-public class AttackAll extends ability
+public class AttackAll extends Ability
 {
     public AttackAll()
     {
-        super("dunno",1);
+        super("/images/ability_icons/MultiAttackIcon.png",1);
     }
 
     public void applyAbility(Role Caster, ArrayList<Role> Target)
@@ -21,7 +21,8 @@ public class AttackAll extends ability
 
     public String toString()
     {
-        return("Attack all allows the current character to deal damage to the entire enemy team, lessened by their armor.");
+        return("\tAttack all allows the current character to deal damage" +
+                " \n\tto the entire enemy team, lessened by their armor.");
     }
 
     public String whatHappened(Role Caster, Role Target)

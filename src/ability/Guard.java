@@ -2,11 +2,11 @@ package ability;
 
 import characters.Role;
 
-public class Guard extends ability
+public class Guard extends Ability
 {
     public Guard()
     {
-        super("NotYetDecided",2);
+        super("/images/ability_icons/BuffArmorIcon.png",2);
     }
 
     public void applyAbility(Role Caster, Role Target)
@@ -16,7 +16,8 @@ public class Guard extends ability
 
     public String toString()
     {
-        return("Buff armor increases the target's armor, reducing the damage they take from attacks.");
+        return("\tBuff armor increases the target's armor," +
+                " \n\treducing the damage they take from attacks.");
     }
 
     public String whatHappened(Role Caster, Role Target)

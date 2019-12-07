@@ -1,5 +1,9 @@
 package characters;
 
+import ability.*;
+
+import java.util.ArrayList;
+
 public class Warrior extends Role {
     public Warrior(String name_, String classPlaceHolder_, int currentLevel_, int maxHealth_, int baseAttack_, int baseArmor_, int baseInit_)
     {
@@ -18,6 +22,17 @@ public class Warrior extends Role {
     }
 
     public String getIcon(){ return "/images/role_icons/warrior.png";}
+
+    public ArrayList<Ability> getAbilities(){
+        return this.abilities;
+    }
+
+    public void setAbilities(){
+        this.abilities.add(new Attack());
+        this.abilities.add(new Inspire());
+        this.abilities.add(new Guard());
+        this.abilities.add(new Frighten());
+    }
 
     //Ecters
     @Override

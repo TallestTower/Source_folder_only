@@ -1,5 +1,9 @@
 package characters;
 
+import ability.*;
+
+import java.util.ArrayList;
+
 public class Mage extends Role
 {
     public Mage(String name_, String classPlaceHolder_, int currentLevel_, int maxHealth_, int baseAttack_, int baseArmor_, int baseInit_)
@@ -20,6 +24,16 @@ public class Mage extends Role
 
     public String getIcon(){ return "/images/role_icons/mage.png";}
 
+    public ArrayList<Ability> getAbilities(){
+        return this.abilities;
+    }
+
+    public void setAbilities(){
+        this.abilities.add(new Attack());
+        this.abilities.add(new AttackAll());
+        this.abilities.add(new Slag());
+        this.abilities.add(new Brittle());
+    }
     //Ecters
     @Override
     public void hpUp()

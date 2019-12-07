@@ -26,25 +26,22 @@ Archer:
 2-BattleFieldMedicine
 3-ArrowPin
 */
-public abstract class ability
+public abstract class Ability
 {
     protected String iconLocation;
     protected int iconPosition;
-    public ability(String iconLocation_, int iconPosition_){
+    public Ability(String iconLocation_, int iconPosition_){
         this.iconLocation = iconLocation_;
         this.iconPosition = iconPosition_;
     }
 
-    public ability()
+    public Ability()
     {
         this.iconLocation = "Null";
         this.iconPosition = 0;
     }
 
-    protected void applyAbility()
-    {
-
-    }
+    public void applyAbility(){}
 
     protected String whatHappened(Role User, Role Target)
     {
@@ -56,12 +53,12 @@ public abstract class ability
         return "";
     }
 
-    protected String getIconLocation()
+    public String getIconLocation()
     {
         return iconLocation;
     }
 
-    protected int getIconPosition()
+    public int getIconPosition()
     {
         return iconPosition;
     }

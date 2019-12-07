@@ -4,11 +4,11 @@ import characters.Role;
 
 import java.util.ArrayList;
 
-public class Inspire extends ability
+public class Inspire extends Ability
 {
     public Inspire()
     {
-        super("Dunno",1);
+        super("/images/ability_icons/BuffInitiativeIcon.png",1);
     }
 
     public void applyAbility(Role Caster, ArrayList<Role> Target)
@@ -20,7 +20,8 @@ public class Inspire extends ability
     }
 
     public String toString() {
-        return ("Inspire increases the entire team's speed by a small amount, ensuring that their ability to act comes sooner in a round.");
+        return ("\tInspire increases the entire team's speed by a small amount," +
+                " \n\tensuring that their ability to act comes sooner in a round.");
     }
 
     public String whatHappened(Role Caster, ArrayList<Role> Target)

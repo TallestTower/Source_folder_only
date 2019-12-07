@@ -2,11 +2,11 @@ package ability;
 
 import characters.Role;
 
-public class BattlefieldMedicine extends ability
+public class BattlefieldMedicine extends Ability
 {
     public BattlefieldMedicine()
     {
-        super("Dunno",2);
+        super("/images/ability_icons/HealIcon.png",2);
     }
 
     public void applyAbility(Role Caster, Role Target)
@@ -16,7 +16,8 @@ public class BattlefieldMedicine extends ability
 
     public String toString()
     {
-        return("Do you have booboos and ouchies? No magic here, just bandages and medicine.");
+        return("\tDo you have booboos and ouchies? No magic here," +
+                " \n\tjust bandages and medicine.");
     }
 
     public String whatHappened(Role Caster, Role Target)
