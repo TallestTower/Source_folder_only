@@ -1,5 +1,9 @@
 package characters;
 
+import ability.*;
+
+import java.util.ArrayList;
+
 public class Cleric extends Role {
     public Cleric(String name_, String classPlaceHolder_, int currentLevel_, int maxHealth_, int baseAttack_, int baseArmor_, int baseInit_)
     {
@@ -17,7 +21,18 @@ public class Cleric extends Role {
         this("Jesus Christ","Cleric",10,200,20,3,20);
     }
 
-    public String getIcon(){ return "/images/role_icons/cleric.png";}
+    public String getIcon(){ return "/images/role_icons/cleric.png"; }
+
+    public ArrayList<Ability> getAbilities(){
+        return this.abilities;
+    }
+
+    public void setAbilities(){
+        this.abilities.add(new Attack());
+        this.abilities.add(new Fervor());
+        this.abilities.add(new Heal());
+        this.abilities.add(new Cleanse());
+    }
 
     //Ecters
     @Override

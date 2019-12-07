@@ -1,5 +1,9 @@
 package characters;
 
+import ability.*;
+
+import java.util.ArrayList;
+
 public class Archer extends Role
 {
     public Archer(String name_, String classPlaceHolder_, int currentLevel_, int maxHealth_, int baseAttack_, int baseArmor_, int baseInit_)
@@ -19,6 +23,17 @@ public class Archer extends Role
     }
 
     public String getIcon(){ return "/images/role_icons/archer.png";}
+
+    public ArrayList<Ability> getAbilities(){
+        return this.abilities;
+    }
+
+    public void setAbilities(){
+        this.abilities.add(new Attack());
+        this.abilities.add(new AttackAll());
+        this.abilities.add(new BattlefieldMedicine());
+        this.abilities.add(new ArrowPin());
+    }
     //Ecters
     @Override
     public void hpUp()

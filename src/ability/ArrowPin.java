@@ -2,11 +2,11 @@ package ability;
 
 import characters.Role;
 
-public class ArrowPin extends ability
+public class ArrowPin extends Ability
 {
     public ArrowPin()
     {
-        super("dunno",3);
+        super("/images/ability_icons/DeBuffAttackIcon.png",3);
     }
 
     public void applyAbility(Role Caster, Role Target)
@@ -17,7 +17,8 @@ public class ArrowPin extends ability
 
     public String toString()
     {
-        return("Attack all allows the current character to deal damage to a single target, lowering their initiative.");
+        return("ArrowPin allows the current character to deal precise" +
+                " \ndamage to a single target, lowering their initiative.");
     }
 
     public String whatHappened(Role Caster, Role Target)

@@ -2,11 +2,11 @@ package ability;
 import characters.*;
 
 
-public class Attack extends ability
+public class Attack extends Ability
 {
     public Attack()
     {
-        super("NotYetDecided",0);
+        super("/images/ability_icons/AttackIcon.png",0);
     }
 
     public void applyAbility(Role Caster, Role Target)
@@ -16,7 +16,8 @@ public class Attack extends ability
 
     public String toString()
     {
-        return("Attack allows the current character to deal damage to an enemy, lessened by their armor.");
+        return("\tAttack allows the current character to deal damage to an enemy," +
+                " \n\tlessened by their armor.");
     }
 
     public String whatHappened(Role Caster, Role Target)

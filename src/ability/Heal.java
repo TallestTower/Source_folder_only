@@ -2,10 +2,10 @@ package ability;
 
 import characters.Role;
 
-public class Heal extends ability{
+public class Heal extends Ability {
     public Heal()
     {
-        super("Dunno",2);
+        super("/images/ability_icons/HealIcon.png",2);
     }
 
     public void applyAbility(Role Caster, Role Target)
@@ -15,7 +15,9 @@ public class Heal extends ability{
 
     public String toString()
     {
-        return("Do you have booboos and ouchies? This is better than a mother's kiss. Restores some lost HP.");
+        return("\tDo you have booboos and ouchies?" +
+                " \n\tThis is better than a mother's kiss." +
+                " \n\tRestores some lost HP.");
     }
 
     public String whatHappened(Role Caster, Role Target)

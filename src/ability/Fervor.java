@@ -2,11 +2,11 @@ package ability;
 
 import characters.Role;
 
-public class Fervor extends ability
+public class Fervor extends Ability
 {
     public Fervor()
     {
-        super("Dunno",1);
+        super("/images/ability_icons/BuffInitiativeIcon.png",1);
     }
 
     public void applyAbility(Role Caster, Role Target)
@@ -16,7 +16,8 @@ public class Fervor extends ability
 
     public String toString()
     {
-        return("Fervor inspires the target to attack with more zeal, influenced by the cleric's level.");
+        return("\tFervor inspires the target to attack with more zeal," +
+                " \n\tinfluenced by the cleric's level.");
     }
     public String whatHappened(Role Caster, Role Target)
     {

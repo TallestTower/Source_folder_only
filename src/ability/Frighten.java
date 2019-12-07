@@ -2,11 +2,11 @@ package ability;
 
 import characters.Role;
 
-public class Frighten extends ability
+public class Frighten extends Ability
 {
     public Frighten()
     {
-        super("Dunno",3);
+        super("/images/ability_icons/DeBuffInitiativeIcon.png",3);
     }
 
     public void applyAbility(Role Caster, Role Target)
@@ -16,7 +16,8 @@ public class Frighten extends ability
 
     public String toString()
     {
-        return("Frightening the enemy makes them more hesitant to attack, lessening their initiative");
+        return("\tFrightening the enemy makes them more hesitant to attack," +
+                " \n\tlessening their initiative");
     }
     public String whatHappened(Role Caster, Role Target)
     {

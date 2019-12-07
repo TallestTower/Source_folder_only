@@ -14,11 +14,13 @@ public class MainTester {
         players.add(new Archer());
         players.add(new Mage());
         players.add(new Cleric());
+        System.out.println("Generating starter characters.");
         ArrayList<Role> enemies = new ArrayList<>();
         enemies.add(new Cleric());
         enemies.add(new Archer());
         enemies.add(new Archer());
         enemies.add(new Archer());
+        System.out.println("Populating starter enemies.");
         CombatWindow attack = new CombatWindow(players, enemies);
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
