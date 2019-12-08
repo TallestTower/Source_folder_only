@@ -2,6 +2,8 @@ package ability;
 
 import characters.Role;
 
+import java.util.ArrayList;
+
 public class Cleanse extends Ability
 {
     public Cleanse()
@@ -9,11 +11,13 @@ public class Cleanse extends Ability
         super("/images/ability_icons/CleanseIcon.png",3);
     }
 
-    public void applyAbility(Role Target)
+    public void applyAbility(){}
+    public void applyAbility(Role caster, ArrayList<Role> targets){}
+    public void applyAbility(Role caster, Role target)
     {
-        Target.setCurrentInitiative(Target.getBaseInitiative());
-        Target.setCurrentArmor(Target.getBaseArmor());
-        Target.setCurrentAttack(Target.getBaseAttack());
+        target.setCurrentInitiative(target.getBaseInitiative());
+        target.setCurrentArmor(target.getBaseArmor());
+        target.setCurrentAttack(target.getBaseAttack());
 
     }
 
@@ -23,8 +27,8 @@ public class Cleanse extends Ability
                 " \n\tbe ready to become normal again.");
     }
 
-    public String whatHappened(Role Caster, Role Target)
+    public String whatHappened(Role caster, Role target)
     {
-        return(Caster.getName()+" set "+Target.getName()+"back to base settings!");
+        return(caster.getName()+" set "+target.getName()+" back to base settings!");
     }
 }

@@ -9,6 +9,7 @@ public class Archer extends Role
     public Archer(String name_, String classPlaceHolder_, int currentLevel_, int maxHealth_, int baseAttack_, int baseArmor_, int baseInit_)
     {
         super(name_,"Archer",currentLevel_,maxHealth_,baseAttack_,baseArmor_,baseInit_,100*currentLevel_);
+        this.roleImage = "/images/role_icons/archer.png";
     }
 
     public Archer(String name_, int currentLevel_)
@@ -19,10 +20,10 @@ public class Archer extends Role
 
     public Archer()
     {
-        this("Robin Hood","Archer",10,140,27,2,20);
+        this("Robin Hood","Archer",10,140,27,2,40);
     }
 
-    public String getIcon(){ return "/images/role_icons/archer.png";}
+    public String getIcon(){ return roleImage;}
 
     public ArrayList<Ability> getAbilities(){
         return this.abilities;

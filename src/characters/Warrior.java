@@ -5,9 +5,11 @@ import ability.*;
 import java.util.ArrayList;
 
 public class Warrior extends Role {
+
     public Warrior(String name_, String classPlaceHolder_, int currentLevel_, int maxHealth_, int baseAttack_, int baseArmor_, int baseInit_)
     {
         super(name_,"Warrior",currentLevel_,maxHealth_,baseAttack_,baseArmor_,baseInit_, 100 * currentLevel_);
+        this.roleImage = "/images/role_icons/warrior.png";
     }
 
     public Warrior(String name_, int currentLevel_)
@@ -21,7 +23,7 @@ public class Warrior extends Role {
         this("Maximus Meridius","Warrior",10,200,20,3,10);
     }
 
-    public String getIcon(){ return "/images/role_icons/warrior.png";}
+    public String getIcon(){ return roleImage;}
 
     public ArrayList<Ability> getAbilities(){
         return this.abilities;

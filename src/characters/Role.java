@@ -7,7 +7,9 @@ import java.util.ArrayList;
 public abstract class Role {
     private int currentHealth, maxHealth, currentLevel, baseAttack, currentAttack, baseArmor, currentArmor, baseInitiative, currentInitiative, currentEXP, maxEXP;
     private String name, classPlaceHolder;
-    public ArrayList<Ability> abilities;
+    protected String roleImage;
+    ArrayList<Ability> abilities;
+    private boolean isPlayerOwned, isAlive;
     public Role(String name_, String classPlaceHolder_, int currentLevel_, int maxHealth_, int baseAttack_, int baseArmor_, int baseInit_, int maxEXP_)
     {
         this.name = name_;
@@ -23,16 +25,15 @@ public abstract class Role {
         this.currentInitiative= baseInit_;
         this.currentEXP = 0;
         this.maxEXP = maxEXP_;
+        this.isAlive = true;
         abilities = new ArrayList<>();
         setAbilities();
     }
-
     public Role(String name_, int currentLevel_)
     {
         this(name_, "Cardboard Cutout", currentLevel_, 100 + (10*currentLevel_),
                 5 + currentLevel_, 1+(currentLevel_/10), 10+(currentLevel_),100 * currentLevel_);
     }
-
     public Role()
     {
         this("Generic Git", "Cardboard Cutout", 1, 110,
@@ -93,6 +94,10 @@ public abstract class Role {
 
     public abstract ArrayList<Ability> getAbilities();
 
+    public boolean getPlayerOwned(){ return this.isPlayerOwned; }
+
+    public boolean getIsAlive(){return this.isAlive;}
+
     public String[] getStatsList() {
         String[] tempList = new String[6];
         tempList[0] = "Name: " + getName();
@@ -150,7 +155,16 @@ public abstract class Role {
         this.currentInitiative = newInitiative;
     }
 
+    public void setRoleImage(String IconHereYouFool)
+    {
+        this.roleImage = IconHereYouFool;
+    }
+
     public abstract void setAbilities();
+
+    public void setPlayerOwned(boolean playerOwnedIn){ this.isPlayerOwned = playerOwnedIn; }
+
+    private void setIsDead() {this.isAlive = false;}
 
     public void buffCurrentInitiatve(int buffInit)
     {
@@ -186,9 +200,11 @@ public abstract class Role {
     {
         if(damageTaken > currentArmor)
             this.currentHealth -= damageTaken-currentArmor;
-        if(currentHealth<0)
+        if(currentHealth<=0)
         {
             currentHealth = 0;
+            setRoleImage("/images/role_icons/tomb.png");
+            setIsDead();
         }
     }
 
@@ -203,7 +219,11 @@ public abstract class Role {
     }
     public void healHealth(int healthChange)
     {
-        if(healthChange + getCurrentHealth() > getMaxHealth())
+        if(!getIsAlive())
+        {
+            setCurrentHealth(0);
+        }
+        else if(healthChange + getCurrentHealth() > getMaxHealth())
         {
             setCurrentHealth(getMaxHealth());
         }

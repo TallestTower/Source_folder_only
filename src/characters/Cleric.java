@@ -5,9 +5,11 @@ import ability.*;
 import java.util.ArrayList;
 
 public class Cleric extends Role {
+
     public Cleric(String name_, String classPlaceHolder_, int currentLevel_, int maxHealth_, int baseAttack_, int baseArmor_, int baseInit_)
     {
         super(name_,"Cleric",currentLevel_,maxHealth_,baseAttack_,baseArmor_,baseInit_, 100*currentLevel_);
+        this.roleImage = "/images/role_icons/cleric.png";
     }
 
     public Cleric(String name_, int currentLevel_)
@@ -18,10 +20,10 @@ public class Cleric extends Role {
 
     public Cleric()
     {
-        this("Jesus Christ","Cleric",10,200,20,3,20);
+        this("Hospitaller","Cleric",10,200,20,3,20);
     }
 
-    public String getIcon(){ return "/images/role_icons/cleric.png"; }
+    public String getIcon(){ return roleImage; }
 
     public ArrayList<Ability> getAbilities(){
         return this.abilities;

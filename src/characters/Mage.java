@@ -9,6 +9,7 @@ public class Mage extends Role
     public Mage(String name_, String classPlaceHolder_, int currentLevel_, int maxHealth_, int baseAttack_, int baseArmor_, int baseInit_)
     {
         super(name_,"Mage",currentLevel_,maxHealth_,baseAttack_,baseArmor_,baseInit_, 100 * currentLevel_);
+        this.roleImage = "/images/role_icons/mage.png";
     }
 
     public Mage(String name_, int currentLevel_)
@@ -22,7 +23,7 @@ public class Mage extends Role
         this("Tim The Enchanter","Mage",10,120,62,2,30);
     }
 
-    public String getIcon(){ return "/images/role_icons/mage.png";}
+    public String getIcon(){ return this.roleImage;}
 
     public ArrayList<Ability> getAbilities(){
         return this.abilities;

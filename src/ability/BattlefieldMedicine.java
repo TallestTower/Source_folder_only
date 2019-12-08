@@ -2,6 +2,8 @@ package ability;
 
 import characters.Role;
 
+import java.util.ArrayList;
+
 public class BattlefieldMedicine extends Ability
 {
     public BattlefieldMedicine()
@@ -9,6 +11,8 @@ public class BattlefieldMedicine extends Ability
         super("/images/ability_icons/HealIcon.png",2);
     }
 
+    public void applyAbility(){}
+    public void applyAbility(Role caster, ArrayList<Role> targets){}
     public void applyAbility(Role Caster, Role Target)
     {
         Target.healHealth((Caster.getCurrentAttack()/4)+(2*Caster.getLevel()));
@@ -22,6 +26,6 @@ public class BattlefieldMedicine extends Ability
 
     public String whatHappened(Role Caster, Role Target)
     {
-        return(Caster.getName()+" restored "+Target.getName()+"'s health by "+(Caster.getCurrentAttack()/4)+(2*Caster.getLevel())+". "+Target.getName()+"'s health is now "+Target.getCurrentHealth());
+        return(Caster.getName()+" restored "+Target.getName()+"'s health by "+(Caster.getCurrentAttack()/4+2*Caster.getLevel())+". "+Target.getName()+"'s health is now "+Target.getCurrentHealth());
     }
 }

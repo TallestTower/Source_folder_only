@@ -3,28 +3,28 @@ import characters.*;
 
 import java.util.ArrayList;
 
-//TODO
 /*
-Warrior:
-0 - Attack
-1-Inspire
-2-Guard
-3-Frighten
-Cleric:
-0 - Attack
-1 - Fervor
-2 - Heal
-3 - Cleanse
-Mage:
-0-Attack
-1-AttackAll
-2-Slag
-3-Brittle
-Archer:
-0-Attack
-1-AttackAll
-2-BattleFieldMedicine
-3-ArrowPin
+Abilities for each class
+    Warrior:
+        0 - Attack -> one
+        1-Inspire -> all
+        2-Guard -> one
+        3-Frighten -> one
+    Cleric:
+        0 - Attack -> one
+        1 - Fervor -> one
+        2 - Heal -> one
+        3 - Cleanse -> one
+    Mage:
+        0-Attack -> one
+        1-AttackAll -> all
+        2-Slag -> one
+        3-Brittle -> one
+    Archer:
+        0-Attack -> one
+        1-AttackAll -> all
+        2-BattleFieldMedicine -> one
+        3-ArrowPin -> one
 */
 public abstract class Ability
 {
@@ -41,14 +41,18 @@ public abstract class Ability
         this.iconPosition = 0;
     }
 
-    public void applyAbility(){}
+    public abstract void applyAbility();
+    public abstract void applyAbility(Role caster, Role target);
+    public abstract void applyAbility(Role caster, ArrayList<Role> targets);
 
-    protected String whatHappened(Role User, Role Target)
+    public String whatHappened(Role User) {return "";}
+
+    public String whatHappened(Role User, Role Target)
     {
         return "";
     }
 
-    protected String whatHappened(Role User, ArrayList<Role> Targets)
+    public String whatHappened(Role User, ArrayList<Role> Targets)
     {
         return "";
     }
