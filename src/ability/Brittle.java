@@ -2,6 +2,8 @@ package ability;
 
 import characters.Role;
 
+import java.util.ArrayList;
+
 public class Brittle extends Ability
 {
     public Brittle()
@@ -9,6 +11,8 @@ public class Brittle extends Ability
         super("/images/ability_icons/DeBuffAttackIcon.png",3);
     }
 
+    public void applyAbility(){}
+    public void applyAbility(Role caster, ArrayList<Role> targets){}
     public void applyAbility(Role Caster, Role Target)
     {
         Target.takeDamage(Caster.getCurrentAttack()/2);

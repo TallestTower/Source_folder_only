@@ -2,6 +2,8 @@ package ability;
 
 import characters.Role;
 
+import java.util.ArrayList;
+
 public class Slag extends Ability
 {
     public Slag()
@@ -9,6 +11,8 @@ public class Slag extends Ability
         super("/images/ability_icons/DeBuffArmorIcon.png",2);
     }
 
+    public void applyAbility(){}
+    public void applyAbility(Role caster, ArrayList<Role> targets){}
     public void applyAbility(Role Caster, Role Target)
     {
         Target.takeDamage(Caster.getCurrentAttack()/2);
@@ -25,6 +29,6 @@ public class Slag extends Ability
     {
         return(Caster.getName()+" dealt "+Math.max(0,Caster.getCurrentAttack() -
                 Target.getCurrentArmor())+" damage to "+Target.getName() +
-                ". Their armor is reduced by "+Caster.getLevel()/2);
+                ". \nTheir armor is reduced by "+Caster.getLevel()/2);
     }
 }

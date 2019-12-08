@@ -11,6 +11,8 @@ public class Inspire extends Ability
         super("/images/ability_icons/BuffInitiativeIcon.png",1);
     }
 
+    public void applyAbility(){}
+    public void applyAbility(Role caster, Role target){}
     public void applyAbility(Role Caster, ArrayList<Role> Target)
     {
         for(Role targets : Target)
@@ -24,7 +26,7 @@ public class Inspire extends Ability
                 " \n\tensuring that their ability to act comes sooner in a round.");
     }
 
-    public String whatHappened(Role Caster, ArrayList<Role> Target)
+    public String whatHappened(Role Caster)
     {
         return(Caster.getName()+" increased the entire team's initiative by "+Caster.getCurrentAttack()/4);
     }

@@ -11,6 +11,8 @@ public class AttackAll extends Ability
         super("/images/ability_icons/MultiAttackIcon.png",1);
     }
 
+    public void applyAbility(){}
+    public void applyAbility(Role caster, Role target){}
     public void applyAbility(Role Caster, ArrayList<Role> Target)
     {
         for(Role targets : Target)
@@ -25,8 +27,8 @@ public class AttackAll extends Ability
                 " \n\tto the entire enemy team, lessened by their armor.");
     }
 
-    public String whatHappened(Role Caster, Role Target)
+    public String whatHappened(Role Caster)
     {
-        return(Caster.getName()+" dealt up to "+Caster.getCurrentAttack()+ " damage to the enemy team.");
+        return(Caster.getName()+" dealt up to "+Caster.getCurrentAttack()/2+ " damage to the enemy team.");
     }
 }

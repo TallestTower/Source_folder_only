@@ -2,13 +2,17 @@ package ability;
 
 import characters.Role;
 
+import java.util.ArrayList;
+
 public class Fervor extends Ability
 {
     public Fervor()
     {
-        super("/images/ability_icons/BuffInitiativeIcon.png",1);
+        super("/images/ability_icons/BuffAttackIcon.png",1);
     }
 
+    public void applyAbility(){}
+    public void applyAbility(Role caster, ArrayList<Role> targets){}
     public void applyAbility(Role Caster, Role Target)
     {
         Target.buffCurrentAttack(5+Caster.getLevel());

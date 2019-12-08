@@ -41,7 +41,7 @@
                   </grid>
                 </constraints>
                 <properties>
-                  <background color="-2439424"/>
+                  <background color="-7241728"/>
                   <enabled value="true"/>
                   <text value=""/>
                 </properties>
@@ -55,7 +55,7 @@
                   </grid>
                 </constraints>
                 <properties>
-                  <background color="-2439424"/>
+                  <background color="-7241728"/>
                   <enabled value="true"/>
                   <text value=""/>
                 </properties>
@@ -69,7 +69,7 @@
                   </grid>
                 </constraints>
                 <properties>
-                  <background color="-2439424"/>
+                  <background color="-7241728"/>
                   <text value=""/>
                 </properties>
               </component>
@@ -82,7 +82,7 @@
                   </grid>
                 </constraints>
                 <properties>
-                  <background color="-2439424"/>
+                  <background color="-7241728"/>
                   <text value=""/>
                 </properties>
               </component>
@@ -109,7 +109,7 @@
                   </grid>
                 </constraints>
                 <properties>
-                  <background color="-3080192"/>
+                  <background color="-16753407"/>
                   <text value=""/>
                 </properties>
               </component>
@@ -122,7 +122,7 @@
                   </grid>
                 </constraints>
                 <properties>
-                  <background color="-3080192"/>
+                  <background color="-16753407"/>
                   <text value=""/>
                 </properties>
               </component>
@@ -135,7 +135,7 @@
                   </grid>
                 </constraints>
                 <properties>
-                  <background color="-3080192"/>
+                  <background color="-16753407"/>
                   <text value=""/>
                 </properties>
               </component>
@@ -148,7 +148,7 @@
                   </grid>
                 </constraints>
                 <properties>
-                  <background color="-3080192"/>
+                  <background color="-16753407"/>
                   <text value=""/>
                 </properties>
               </component>
@@ -170,7 +170,7 @@
         </properties>
         <border type="none"/>
         <children>
-          <component id="a9ecf" class="javax.swing.JTextArea" binding="EnemyStatsTextArea">
+          <component id="a9ecf" class="javax.swing.JTextArea" binding="TargetStatsTextArea">
             <constraints>
               <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
                 <minimum-size width="200" height="150"/>
@@ -203,7 +203,7 @@
               <text value=""/>
             </properties>
           </component>
-          <component id="34c0c" class="javax.swing.JLabel" binding="TargetedEnemyLabel">
+          <component id="34c0c" class="javax.swing.JLabel" binding="TargetLabel">
             <constraints>
               <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
                 <minimum-size width="200" height="150"/>

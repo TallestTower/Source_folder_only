@@ -1,6 +1,8 @@
 package ability;
 import characters.*;
 
+import java.util.ArrayList;
+
 
 public class Attack extends Ability
 {
@@ -9,6 +11,8 @@ public class Attack extends Ability
         super("/images/ability_icons/AttackIcon.png",0);
     }
 
+    public void applyAbility(){}
+    public void applyAbility(Role caster, ArrayList<Role> targets){}
     public void applyAbility(Role Caster, Role Target)
     {
         Target.takeDamage(Caster.getCurrentAttack());
